@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Mr. Learning - Kids Voice Learning App</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="A voice learning app for kids aged 5+ to ask questions in Cantonese and get answers with voice output.">
+  <meta name="keywords" content="kids learning, voice learning, cantonese, education, children">
+  <meta name="author" content="David Cheang">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mr-learning.netlify.app/">
+  <meta property="og:title" content="Mr. Learning - Kids Voice Learning App">
+  <meta property="og:description" content="A voice learning app for kids aged 5+ to ask questions in Cantonese and get answers with voice output.">
+  <meta property="og:image" content="https://mr-learning.netlify.app/icons/og-image.jpg">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://mr-learning.netlify.app/">
+  <meta property="twitter:title" content="Mr. Learning - Kids Voice Learning App">
+  <meta property="twitter:description" content="A voice learning app for kids aged 5+ to ask questions in Cantonese and get answers with voice output.">
+  <meta property="twitter:image" content="https://mr-learning.netlify.app/icons/og-image.jpg">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#BEE3F8">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Nunito:wght@400;600&family=Baloo+2:wght@800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Prevent iOS from zooming on input focus -->
+  <style>
+    html, body, #root {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Nunito', sans-serif;
+    }
+    input, select, textarea {
+      font-size: 16px; /* Prevents iOS zoom on focus */
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(registration => {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          })
+          .catch(error => {
+            console.log('ServiceWorker registration failed: ', error);
+          });
+      });
+    }
+  </script>
+</body>
+</html>

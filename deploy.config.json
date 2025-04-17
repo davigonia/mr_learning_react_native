@@ -1,0 +1,15 @@
+{
+  "name": "mr-learning-react-native-web",
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "environment": {
+    "NODE_VERSION": "16.x"
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}

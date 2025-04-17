@@ -1,0 +1,43 @@
+{
+  "name": "mr-learning-react-native-web",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve --mode development",
+    "build": "webpack --mode production",
+    "build:deploy": "node build.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "David Cheang",
+  "license": "ISC",
+  "description": "Mr. Learning - Kids Voice Learning App with React Native Web",
+  "dependencies": {
+    "@react-navigation/native": "^7.1.6",
+    "@react-navigation/stack": "^7.2.10",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-native": "^0.79.1",
+    "react-native-gesture-handler": "^2.25.0",
+    "react-native-safe-area-context": "^5.4.0",
+    "react-native-screens": "^4.10.0",
+    "react-native-tts": "^4.1.1",
+    "react-native-voice": "^0.3.0",
+    "react-native-web": "^0.20.0",
+    "react-native-web-linear-gradient": "^1.1.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.10",
+    "@babel/preset-env": "^7.26.9",
+    "@babel/preset-react": "^7.26.3",
+    "babel-loader": "^10.0.0",
+    "babel-plugin-react-native-web": "^0.20.0",
+    "css-loader": "^7.1.2",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.6.3",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.99.5",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.1"
+  }
+}
