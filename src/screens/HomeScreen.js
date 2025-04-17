@@ -8,7 +8,7 @@ import {
   Platform,
   Alert
 } from 'react-native';
-import { View } from 'react-native';
+// Using View instead of SafeAreaView for better compatibility
 import ParentModal from '../components/ParentModal';
 import { LinearGradient } from 'react-native-web-linear-gradient';
 import { getSpeechRecognition, getSpeechSynthesis } from '../utils/WebSpeech';

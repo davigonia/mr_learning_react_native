@@ -33,19 +33,12 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.web.js', '.js', '.jsx', '.ts', '.tsx'],
+    extensions: ['.web.js', '.js', '.jsx'],
     alias: {
       'react-native$': 'react-native-web',
-      '@react-navigation/elements': '@react-navigation/elements/lib/module/index.js',
-      '@react-navigation/native': '@react-navigation/native/lib/module/index.js',
-      '@react-navigation/stack': '@react-navigation/stack/lib/module/index.js',
-      'react-native-screens': 'react-native-screens/lib/module/index.js',
-      'react-native-safe-area-context': 'react-native-safe-area-context/lib/module/index.js',
-      'react-native-gesture-handler': 'react-native-gesture-handler/lib/module/index.js'
-    },
-    fallback: {
-      'react-native-screens': false,
-      'react-native-reanimated': false
+      'react-native-gesture-handler': 'react-native-web',
+      'react-native-screens': 'react-native-web',
+      'react-native-safe-area-context': 'react-native-web'
     }
   },
   plugins: [
