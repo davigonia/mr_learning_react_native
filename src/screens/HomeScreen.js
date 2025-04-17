@@ -402,7 +402,6 @@ const styles = StyleSheet.create({
       backgroundImage: 'linear-gradient(135deg, #BEE3F8 0%, #FED7E2 50%, #C7D2FE 100%)',
     })
   },
-  },
   title: {
     fontFamily: 'Baloo 2, cursive',
     fontSize: 48,
