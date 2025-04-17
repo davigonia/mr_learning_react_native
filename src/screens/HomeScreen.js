@@ -68,25 +68,22 @@ const HomeScreen = () => {
   }, []);
   
   // Initialize voice recognition and TTS
-  const initializeVoiceAndTts = () => {
+  useEffect(() => {
     if (Platform.OS === 'web') {
-      // Web implementation using WebSpeech utilities
       if (webSpeechRecognition) {
         webSpeechRecognition.setOnStart(() => {
           setIsListening(true);
         });
-        
         webSpeechRecognition.setOnEnd(() => {
           setIsListening(false);
+          console.log('[SpeechRecognition] onend fired');
         });
-        
         webSpeechRecognition.setOnResult((transcript) => {
           handleSpeechResult(transcript);
         });
-        
         webSpeechRecognition.setOnError((error) => {
           setIsListening(false);
-          
+          console.log('[SpeechRecognition] onerror fired:', error);
           if (error === 'not-allowed' || error === 'permission-denied') {
             setFeedbackText("Please allow microphone access to use voice input.");
           } else if (error === 'no-speech') {
@@ -100,8 +97,14 @@ const HomeScreen = () => {
           }
         });
       }
-    } else if (Voice && Tts) {
-      // Native implementation
+    }
+    // No dependencies: run once
+  }, []);
+
+  // (rest of original code continues here)
+  // Native implementation logic (for non-web platforms)
+  const initializeVoiceAndTts = () => {
+    if (Voice && Tts) {
       Voice.onSpeechStart = () => setIsListening(true);
       Voice.onSpeechEnd = () => setIsListening(false);
       Voice.onSpeechResults = (e) => {
@@ -270,10 +273,7 @@ const HomeScreen = () => {
         }
         
         try {
-          // Request permission first
-          await webSpeechRecognition.requestPermission();
-          
-          // Start recognition
+           // Start recognition
           const started = webSpeechRecognition.start();
           if (!started) {
             setFeedbackText("Couldn't start listening. Please try again.");
