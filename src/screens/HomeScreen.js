@@ -10,7 +10,6 @@ import {
 } from 'react-native';
 // Using View instead of SafeAreaView for better compatibility
 import ParentModal from '../components/ParentModal';
-import { LinearGradient } from 'react-native-web-linear-gradient';
 import { getSpeechRecognition, getSpeechSynthesis } from '../utils/WebSpeech';
 
 // Import Voice and TTS conditionally based on platform
@@ -323,10 +322,7 @@ const HomeScreen = () => {
   
   return (
     <View style={styles.container}>
-      <LinearGradient
-        colors={['#BEE3F8', '#FED7E2', '#C7D2FE']}
-        style={styles.background}
-      />
+      <View style={styles.background} />
       
       <Text style={styles.title}>Mr. Learning</Text>
       
@@ -399,6 +395,13 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
+    width: '100%',
+    height: '100%',
+    zIndex: -1,
+    ...(Platform.OS === 'web' && {
+      backgroundImage: 'linear-gradient(135deg, #BEE3F8 0%, #FED7E2 50%, #C7D2FE 100%)',
+    })
+  },
   },
   title: {
     fontFamily: 'Baloo 2, cursive',
