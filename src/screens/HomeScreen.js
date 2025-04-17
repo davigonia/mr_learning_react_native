@@ -8,7 +8,7 @@ import {
   Platform,
   Alert
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { View } from 'react-native';
 import ParentModal from '../components/ParentModal';
 import { LinearGradient } from 'react-native-web-linear-gradient';
 import { getSpeechRecognition, getSpeechSynthesis } from '../utils/WebSpeech';
@@ -322,7 +322,7 @@ const HomeScreen = () => {
   };
   
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <LinearGradient
         colors={['#BEE3F8', '#FED7E2', '#C7D2FE']}
         style={styles.background}
@@ -382,7 +382,7 @@ const HomeScreen = () => {
         questionHistory={questionHistory}
         setQuestionHistory={setQuestionHistory}
       />
-    </SafeAreaView>
+    </View>
   );
 };
 

@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -13,9 +13,13 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
+        exclude: /node_modules\/(?!(react-native-web|@react-navigation|react-native-safe-area-context|react-native-screens|react-native-gesture-handler)\/).*/,
         use: {
-          loader: 'babel-loader'
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+            plugins: ['react-native-web']
+          }
         }
       },
       {
@@ -45,7 +49,8 @@ module.exports = {
     },
     fallback: {
       'react-native-screens': false,
-      'react-native-reanimated': false
+      'react-native-reanimated': false,
+      'react-native-masked-view': false
     }
   },
   plugins: [
@@ -53,12 +58,9 @@ module.exports = {
       template: './public/index.html'
     })
   ],
-  devServer: {
-    historyApiFallback: true,
-    static: {
-      directory: path.join(__dirname, 'public'),
-    },
-    compress: true,
-    port: 3000
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000
   }
 };
