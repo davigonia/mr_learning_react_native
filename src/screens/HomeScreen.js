@@ -10,7 +10,8 @@ import {
 } from 'react-native';
 // Using View instead of SafeAreaView for better compatibility
 import ParentModal from '../components/ParentModal';
-import { LinearGradient } from 'react-native-web-linear-gradient';
+// Using custom LinearGradient for better web compatibility
+import LinearGradient from '../components/CustomLinearGradient';
 import { getSpeechRecognition, getSpeechSynthesis } from '../utils/WebSpeech';
 
 // Import Voice and TTS conditionally based on platform
@@ -342,7 +343,7 @@ const HomeScreen = () => {
         >
           <Text style={styles.askButtonIcon}>
             {Platform.OS === 'web' ? (
-              <i className={`fas fa-microphone ${isListening ? 'pulsing' : ''}`} style={{fontSize: 36, color: 'white'}} />
+              <span className={`fas fa-microphone ${isListening ? 'pulsing' : ''}`} style={{fontSize: 36, color: 'white'}} />
             ) : (
               '🎤'
             )}
